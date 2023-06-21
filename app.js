@@ -1,6 +1,6 @@
 function removeCat(catIndex) {
   cats.splice(catIndex, 1); // Remove the cat from the array
-  renderCatList(); // Re-render the cat list
+  renderCatList(); // Re-render the cat list 123
 }
 
 function toggleCatVisibility(catIndex) {
