@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Whiskers",
+    "dob": "2019-03-15",
+    "sex": "Male",
+    "fixed": true,
+    "shots": true,
+    "weight": 4.5,
+    "special_notes": "Likes to play with yarn"
+  },
+  {
+    "name": "Mittens",
+    "dob": "2020-07-02",
+    "sex": "Female",
+    "fixed": false,
+    "shots": true,
+    "weight": 6.2,
+    "special_notes": "Enjoys chasing laser pointers"
+  },
+  {
+    "name": "Oscar",
+    "dob": "2018-11-20",
+    "sex": "Male",
+    "fixed": true,
+    "shots": false,
+    "weight": 5.8,
+    "special_notes": "Loves to cuddle"
+  }
+]
