@@ -64,34 +64,46 @@ function openAddCatForm() {
 }
 
 function addCat(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  const nameInput = document.getElementById("name");
-  const dobInput = document.getElementById("dob");
-  const sexInput = document.getElementById("sex");
-  const fixedInput = document.getElementById("fixed");
-  const shotsInput = document.getElementById("shots");
-  const weightInput = document.getElementById("weight");
-  const specialNotesInput = document.getElementById("special_notes");
+    const nameInput = document.getElementById('name');
+    const dobInput = document.getElementById('dob');
+    const sexInput = document.getElementById('sex');
+    const fixedInput = document.getElementById('fixed');
+    const shotsInput = document.getElementById('shots');
+    const weightInput = document.getElementById('weight');
+    const specialNotesInput = document.getElementById('special_notes');
 
-  const newCat = {
-    name: nameInput.value,
-    dob: dobInput.value,
-    sex: sexInput.value,
-    fixed: fixedInput.checked,
-    shots: shotsInput.checked,
-    weight: parseFloat(weightInput.value),
-    special_notes: specialNotesInput.value,
-  };
-  // Add the new cat object to the existing cat list
-  cats.push(newCat);
-  // Clear the form
-  event.target.reset();
-  // Remove the form from the DOM
-  event.target.remove();
-  // Re-render the cat list
-  renderCatList();
+    const newCat = {
+        name: nameInput.value,
+        dob: dobInput.value,
+        sex: sexInput.value,
+        fixed: fixedInput.checked,
+        shots: shotsInput.checked,
+        weight: parseFloat(weightInput.value),
+        special_notes: specialNotesInput.value
+    };
+
+    // Make an HTTP POST request to the server endpoint
+    fetch('/cats', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newCat)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Cat data saved:', data);
+            // Refresh the cat list after saving the data
+            getCats();
+        })
+        .catch(error => console.error('Error:', error));
+
+    // Clear the form
+    event.target.reset();
 }
+
 
 // Define the existing cats array (replace with your initial JSON data)
 let cats = [];
