@@ -8,11 +8,22 @@
     <title>Cat Logger App</title>
   </head>
   <body>
-    <h1>Cat Logger App</h1>
-    <h1>Testing My Branch (dvbranch)</h1>
-    <ul id="catList"></ul>
-    <div class="add-cat-btn">
-      <button onclick="openAddCatForm()" class="add-cat-btn">Add a cat</button>
+    <div class="container">
+      <div class="fullscreen-bg">
+        <video class="fullscreen-bg__video" autoplay loop muted>
+          <source src="kitten.mp4" type="video/mp4" />
+        </video>
+        <div class="content"></div>
+      </div>
+
+      <h1>Cat Logger App</h1>
+      <h1>Testing My Branch (dvbranch)</h1>
+      <ul id="catList"></ul>
+      <div class="add-cat-btn">
+        <button onclick="openAddCatForm()" class="add-cat-btn">
+          Add a cat
+        </button>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>
