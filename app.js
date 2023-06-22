@@ -1,19 +1,19 @@
 function removeCat(catIndex) {
-    cats.splice(catIndex, 1); // Remove the cat from the array
-    renderCatList(); // Re-render the cat list
+  cats.splice(catIndex, 1); // Remove the cat from the array
+  renderCatList(); // Re-render the cat list
 }
 
 function toggleCatVisibility(catIndex) {
-    cats[catIndex].hidden = !cats[catIndex].hidden; // Toggle the hidden property
-    renderCatList(); // Re-render the cat list
+  cats[catIndex].hidden = !cats[catIndex].hidden; // Toggle the hidden property
+  renderCatList(); // Re-render the cat list
 }
 
 function openAddCatForm() {
-    const addCatButton = document.querySelector('.add-cat-btn button');
-    addCatButton.disabled = true; // Disable the "Add a cat" button
-    const catForm = document.createElement("form");
-    catForm.className = "add-cat-form";
-    catForm.innerHTML = `
+  const addCatButton = document.querySelector('.add-cat-btn button');
+  addCatButton.disabled = true; // Disable the "Add a cat" button
+  const catForm = document.createElement('form');
+  catForm.className = 'add-cat-form';
+  catForm.innerHTML = `
     <label for="name" class="dsp-block">Name:</label>
     <input type="text" id="name" name="name" required><br>
 
@@ -41,6 +41,7 @@ function openAddCatForm() {
       <option value="Scottish Fold">Scottish Fold</option>
       <option value="Siamese">Siamese</option>
       <option value="Sphynx">Sphynx</option>
+      <option value="Tuxedo">Tuxedo</option>
       <option value="Turkish Angora">Turkish Angora</option>
       <option value="Turkish Van">Turkish Van</option>
     </select><br>
@@ -60,93 +61,92 @@ function openAddCatForm() {
     <button type="button" onclick="cancelAddCat()">Cancel</button>
   `;
 
-    catForm.addEventListener("submit", addCat);
+  catForm.addEventListener('submit', addCat);
 
-    const catList = document.getElementById("catList");
-    catList.appendChild(catForm);
+  const catList = document.getElementById('catList');
+  catList.appendChild(catForm);
 }
 function cancelAddCat() {
-    const addCatButton = document.querySelector('.add-cat-btn button');
-    addCatButton.disabled = false; // Enable the "Add a cat" button
+  const addCatButton = document.querySelector('.add-cat-btn button');
+  addCatButton.disabled = false; // Enable the "Add a cat" button
 
-    const catForm = document.querySelector('.add-cat-form');
-    catForm.remove();
+  const catForm = document.querySelector('.add-cat-form');
+  catForm.remove();
 }
 
 function addCat(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const nameInput = document.getElementById('name');
-    const dobInput = document.getElementById('dob');
-    const sexInput = document.getElementById('sex');
-    const fixedInput = document.getElementById('fixed');
-    const shotsInput = document.getElementById('shots');
-    const weightInput = document.getElementById('weight');
-    const specialNotesInput = document.getElementById('special_notes');
+  const nameInput = document.getElementById('name');
+  const dobInput = document.getElementById('dob');
+  const sexInput = document.getElementById('sex');
+  const fixedInput = document.getElementById('fixed');
+  const shotsInput = document.getElementById('shots');
+  const weightInput = document.getElementById('weight');
+  const specialNotesInput = document.getElementById('special_notes');
 
-    const newCat = {
-        name: nameInput.value,
-        dob: dobInput.value,
-        sex: sexInput.value,
-        fixed: fixedInput.checked,
-        shots: shotsInput.checked,
-        weight: parseFloat(weightInput.value),
-        special_notes: specialNotesInput.value
-    };
+  const newCat = {
+    name: nameInput.value,
+    dob: dobInput.value,
+    sex: sexInput.value,
+    fixed: fixedInput.checked,
+    shots: shotsInput.checked,
+    weight: parseFloat(weightInput.value),
+    special_notes: specialNotesInput.value,
+  };
 
-    // Make an HTTP POST request to the server endpoint
-    fetch('/cats', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newCat)
+  // Make an HTTP POST request to the server endpoint
+  fetch('/cats', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newCat),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Cat data saved:', data);
+      // Refresh the cat list after saving the data
+      getCats();
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Cat data saved:', data);
-            // Refresh the cat list after saving the data
-            getCats();
-        })
-        .catch(error => console.error('Error:', error));
+    .catch((error) => console.error('Error:', error));
 
-    // Clear the form
-    event.target.reset();
+  // Clear the form
+  event.target.reset();
 }
-
 
 // Define the existing cats array (replace with your initial JSON data)
 let cats = [];
 
 function renderCatList() {
-    const catList = document.getElementById("catList");
-    catList.innerHTML = "";
+  const catList = document.getElementById('catList');
+  catList.innerHTML = '';
 
-    cats.forEach((cat) => {
-        const listItem = document.createElement("li");
-        const age = new Date().getFullYear() - new Date(cat.dob).getFullYear();
-        listItem.className = "cat-entry";
+  cats.forEach((cat) => {
+    const listItem = document.createElement('li');
+    const age = new Date().getFullYear() - new Date(cat.dob).getFullYear();
+    listItem.className = 'cat-entry';
 
-        listItem.innerHTML = `
+    listItem.innerHTML = `
       <strong>Name:</strong> ${cat.name}<br>
       <strong>Date of Birth:</strong> ${cat.dob}<br>
       <strong>Age:</strong> ${age} years<br>
       <strong>Sex:</strong> ${cat.sex}<br>
-      <strong>Fixed:</strong> ${cat.fixed ? "Yes" : "No"}<br>
-      <strong>Shots:</strong> ${cat.shots ? "Up to date" : "Not up to date"}<br>
+      <strong>Fixed:</strong> ${cat.fixed ? 'Yes' : 'No'}<br>
+      <strong>Shots:</strong> ${cat.shots ? 'Up to date' : 'Not up to date'}<br>
       <strong>Weight:</strong> ${cat.weight} kg<br>
       <strong>Special Notes:</strong> ${cat.special_notes}
     `;
 
-        catList.appendChild(listItem);
-    });
+    catList.appendChild(listItem);
+  });
 }
 
 // Fetch cats from JSON file
-fetch("cats.json")
-    .then((response) => response.json())
-    .then((data) => {
-        cats = data;
-        renderCatList();
-    })
-    .catch((error) => console.error("Error:", error));
+fetch('cats.json')
+  .then((response) => response.json())
+  .then((data) => {
+    cats = data;
+    renderCatList();
+  })
+  .catch((error) => console.error('Error:', error));
