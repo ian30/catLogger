@@ -1,0 +1,72 @@
+[
+  {
+    "cat_name": "Whiskers",
+    "cat_dob": "2019-03-15",
+    "cat_breed": "Siamese",
+    "cat_gender": "male",
+    "cat_spay_status": true,
+    "cat_vaccination_status": "yes",
+    "cat_age": 3,
+    "cat_notes": "Whiskers is very playful and loves chasing toys."
+  },
+  {
+    "cat_name": "Mittens",
+    "cat_dob": "2020-07-02",
+    "cat_breed": "Maine Coon",
+    "cat_gender": "female",
+    "cat_spay_status": false,
+    "cat_vaccination_status": "unknown",
+    "cat_age": 2,
+    "cat_notes": "Mittens is a friendly cat who enjoys cuddling."
+  },
+  {
+    "cat_name": "Oscar",
+    "cat_dob": "2018-11-20",
+    "cat_breed": "Bengal",
+    "cat_gender": "male",
+    "cat_spay_status": true,
+    "cat_vaccination_status": "yes",
+    "cat_age": 4,
+    "cat_notes": "Oscar loves to explore and is very curious."
+  },
+  {
+    "cat_name": "Fluffy",
+    "cat_dob": "2021-01-10",
+    "cat_breed": "Persian",
+    "cat_gender": "female",
+    "cat_spay_status": true,
+    "cat_vaccination_status": "no",
+    "cat_age": 1,
+    "cat_notes": "Fluffy has a calm and gentle personality."
+  },
+  {
+    "cat_name": "Simba",
+    "cat_dob": "2020-05-07",
+    "cat_breed": "Siberian",
+    "cat_gender": "male",
+    "cat_spay_status": false,
+    "cat_vaccination_status": "unknown",
+    "cat_age": 2,
+    "cat_notes": "Simba is an energetic and playful cat."
+  },
+  {
+    "cat_name": "Luna",
+    "cat_dob": "2017-09-25",
+    "cat_breed": "Ragdoll",
+    "cat_gender": "female",
+    "cat_spay_status": true,
+    "cat_vaccination_status": "yes",
+    "cat_age": 5,
+    "cat_notes": "Luna is a gentle and affectionate cat."
+  },
+  {
+    "cat_name": "Max",
+    "cat_dob": "2020-12-01",
+    "cat_breed": "British Shorthair",
+    "cat_gender": "male",
+    "cat_spay_status": false,
+    "cat_vaccination_status": "yes",
+    "cat_age": 1,
+    "cat_notes": "Max is a mischievous and playful cat."
+  }
+]

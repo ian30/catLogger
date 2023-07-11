@@ -1,0 +1,17 @@
+[
+  {
+    "cat_name": "Whiskers",
+    "cat_dob": "2019-03-15",
+    "cat_breed": "Siamese"
+  },
+  {
+    "cat_name": "Mittens",
+    "cat_dob": "2020-07-02",
+    "cat_breed": "Maine Coon"
+  },
+  {
+    "cat_name": "Oscar",
+    "cat_dob": "2018-11-20",
+    "cat_breed": "Bengal"
+  }
+]
